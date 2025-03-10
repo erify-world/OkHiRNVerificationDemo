@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "19.0.0",
     "react-native": "0.78.0",
-    "react-native-okhi": "^1.2.22",
+    "react-native-okhi": "^1.2.23",
     "react-native-webview": "^13.13.2"
   },
   "devDependencies": {
