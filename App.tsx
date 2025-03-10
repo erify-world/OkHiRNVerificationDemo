@@ -83,6 +83,9 @@ const App = () => {
         onError={handleError}
         onSuccess={handleOnSuccess}
         theme={theme}
+        config={{
+          usageTypes: ["digital_verification"],
+        }}
       />
     </View>
   );
