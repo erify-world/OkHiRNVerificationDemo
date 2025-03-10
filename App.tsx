@@ -84,7 +84,7 @@ const App = () => {
         onSuccess={handleOnSuccess}
         theme={theme}
         config={{
-          usageTypes: ["physical_verification"],
+          usageTypes: ["digital_verification", "physical_verification"],
         }}
       />
     </View>
