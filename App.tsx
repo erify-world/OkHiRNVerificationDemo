@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Button, View, ViewStyle } from "react-native";
 import {
   initialize as initializeOkHi,
@@ -7,10 +7,13 @@ import {
   OkHiLocationManager,
   OkHiLocationManagerProps,
   OkHiUser,
+  UsageType,
 } from "react-native-okhi";
 
 const App = () => {
   const [launch, setLaunch] = useState(false);
+  const createdLocationId = useRef<string | undefined>(undefined);
+
   const style: ViewStyle = {
     flex: 1,
     justifyContent: "center",
@@ -19,7 +22,7 @@ const App = () => {
   const user: OkHiUser = {
     firstName: "John",
     lastName: "Doe",
-    phone: "+234......",
+    phone: "+234...",
     appUserId: "abcd1234",
     email: "john@okhi.co",
   };
@@ -57,6 +60,7 @@ const App = () => {
 
   const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
     try {
+      createdLocationId.current = response.location.id;
       const locationId = await response.startVerification();
       console.log("started verification for: " + locationId);
     } catch (error) {
@@ -73,9 +77,9 @@ const App = () => {
     console.log(error.message);
   };
 
-  return (
-    <View style={style}>
-      <Button title="Verify an address (digital)" onPress={() => setLaunch(true)} />
+  const renderOkHiLocationManager = () => {
+    const usageTypes: UsageType = createdLocationId.current ? ["digital_verification"] : ["address_book"];
+    return (
       <OkHiLocationManager
         launch={launch}
         user={user}
@@ -84,9 +88,18 @@ const App = () => {
         onSuccess={handleOnSuccess}
         theme={theme}
         config={{
-          usageTypes: ["address_book"],
+          usageTypes,
         }}
+        location={{ id: createdLocationId.current }} // pass id if created location
       />
+    );
+  };
+
+  return (
+    <View style={style}>
+      <Button title="Create an address (address book)" onPress={() => setLaunch(true)} />
+      <Button title="Verify saved address (digital)" onPress={() => setLaunch(true)} />
+      {renderOkHiLocationManager()}
     </View>
   );
 };
