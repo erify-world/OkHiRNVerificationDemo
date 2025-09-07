@@ -1,29 +1,28 @@
-# 💎🔥 ERIFY™ World
-*From the ashes to the stars ✨ | ERIFY™ to the world 🌍*
+# 📍 OkHi RN Verification Demo — ERIFY™ World
+
+**React Native demo app for integrating OkHi address verification into ERIFY™ platforms.**  
+Provides a starter implementation with setup steps, sample flows, and API hooks for secure and scalable user onboarding.
 
 ---
 
-## 🚀 Vision
-**ERIFY™ Global** is building luxury digital platforms powered by AI:
-
-- 💳 **Wallet** → Secure global payments & gift cards  
-- 🔥 **Flame Feed** → Social + AI creative feed  
-- 🗣💠 **ERIVOX** → Intelligent voice + text assistant  
+## 🚀 Overview
+This demo shows how to integrate [OkHi](https://okhi.com/) address verification into a **React Native** project.  
+It is intended as a reference implementation for ERIFY™ Global products (Wallet 💳, Flame Feed 🔥, ERIVOX 🗣💠) where **trusted identity and verified addresses** are required.
 
 ---
 
 ## 📦 Tech Stack
-- **Node.js + Express.js** — backend APIs  
-- **MongoDB / PostgreSQL** — data storage  
-- **Cloudflare Zero Trust** — speed + security  
+- **React Native** (Expo or CLI) — mobile app framework  
+- **OkHi React Native SDK** — address verification integration  
+- **Node.js / Express** — backend API hooks (optional)  
 - **GitHub Actions** — CI/CD automation  
-- **Google Wallet API** — payments integration  
+- **Cloudflare Zero Trust** — secure API requests  
 
 ---
 
 ## ⚡ Setup
+
+Clone the repo:
 ```bash
-git clone https://github.com/erifyglobal/erify-world.git
-cd erify-world
-npm install
-npm run dev
+git clone https://github.com/erify-world/OkHiRNVerificationDemo.git
+cd OkHiRNVerificationDemo
