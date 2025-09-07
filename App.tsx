@@ -83,6 +83,9 @@ const App = () => {
         onError={handleError}
         onSuccess={handleOnSuccess}
         theme={theme}
+        config={{
+          usageTypes: ["address_book"],
+        }}
       />
     </View>
   );
